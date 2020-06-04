@@ -1,0 +1,478 @@
+/********************************************
+---
+    标题: Markdown自定义CSS及详解-共用样式-非Markdown_Nice专属.css
+    作者: 梦幻之心星	347369787@QQ.com 
+    标签: [Markdown, Typora, Markdown_Nice, CSS]
+    目录: [Markdown]
+    日期: 2020-6-4
+	版本：V1.2 
+	描述：Markdown_Nice专属 + markdown_here + VS_code 共用样式
+	说明：
+		在非Markdown_Nice环境使用需要进行以下操作：
+		1.将 [h2] 中的[.prefix]替换为[::before]，[.suffix]替换为[::after]。
+		2.清除所有[#nice]。
+		
+---
+********************************************/
+
+/********************************************
+******全局属性
+******代码
+******段落格式
+******链接
+******图片
+******引用
+******列表
+******定义列表
+******任务列表
+******目录
+******表格
+******标题
+******数学公式
+******画图
+********************************************/
+
+/******************** markdown-here 全局属性开始 ********************/
+.markdown-here-wrapper {
+  line-height: 1.25;
+  letter-spacing: 2px;
+}
+
+/* 要添加特定于站点的规则，可以使用我们添加到wrapper元素中的data-md-url属性。请注意，是否使用此类规则取决于您正在*发送*的URL，而不是收件人查看该URL的URL。
+*/
+/* .markdown-here-wrapper[data-md-url*="mail.yahoo."] ul { color: red; } */
+
+/******************** markdown-here 全局属性结束 ********************/
+
+/******************** Markdown Nice 全局属性开始 ********************/
+/* 全局属性
+* 页边距 padding:30px;
+* 全文字体 font-family:optima-Regular;
+* 英文换行 word-break:break-all;
+color:#595959;
+*/
+ {
+  line-height: 1.25;
+  color: #595959;
+  font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light,
+    PingFangTC-light;
+}
+
+/******************** Markdown Nice 全局属性结束 ********************/
+
+/*================代码开始=============*/
+
+pre {
+  line-height: 1.2em;
+}
+
+code /*代码整体样式*/ {
+  font-size: 14px;
+  margin: 0 0.15em;
+  padding: 2px 4px;
+  border: 1px solid #eaeaea;
+  border-radius: 3px; /*圆角框*/
+  background: #f8f8f8;
+}
+
+pre,
+code {
+  font-family: Consolas, Inconsolata, Courier, monospace;
+}
+
+ p code, li code /* 行内代码、列表内代码 */ {
+  color: #3594f7 !important;
+  background: RGBA(59, 170, 250, 0.1);
+  padding: 0 2px;
+  display: inline;
+  white-space: pre-wrap;
+}
+
+ pre code /*代码块*/ {
+  white-space: pre;
+  overflow: auto-flow; /*如果内容被修剪，显示滚动条以便查看其余的内容。*/
+  margin-left: 2em;
+  padding: 0.5em 0.7em;
+  display: block !important;
+}
+
+/*================代码结束=============*/
+
+/*================段落格式开始=============*/
+/********暂无：下标、上标、高亮、脚注********/
+
+ p /*段落*/ {
+  color: #595959;
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+  letter-spacing: 0px; /*字间距*/
+  font-size: 16px;
+  word-spacing: 0px; /*词间距*/
+  text-indent: 0em; /*首行缩进*/
+  text-align: justify; /*文本对齐 */
+  white-space: pre-wrap !important; /* 空白字符的显示 [normal|pre|nowrap|pre-wrap|pre-line|inherit] */
+  word-wrap: break-word !important; /* 长度超过一行的单词换行方法 [normal | break-word] */
+  word-break: break-all !important; /* 非中日韩单词换行方法 [normal | break-all | keep-all]*/
+}
+
+ strong /* 加粗 */ {
+  font-weight: bold;
+  color: #3594f7 !important;
+}
+
+ strong::before /* 加粗之前 */ {
+  content: "「";
+}
+
+ strong::after /* 加粗之后 */ {
+  content: "」";
+}
+
+ em /* 斜体 */ {
+  font-style: italic;
+  color: #3594f7;
+}
+
+ strong em	, em strong/*加粗的斜体*/ {
+  font-weight: bold;
+  color: #3594f7 !important;
+}
+
+ del /* 删除线 */ {
+  font-style: italic;
+  color: red !important;
+}
+
+ hr /*水平分隔线*/ {
+  height: 1px; /*元素的高度*/
+  /*margin: 1.5rem 0px;/*外边距*/
+  padding: 0; /*内边距*/
+  border: none; /*边框*/
+  border-top: 1.5px solid #3baafa !important;
+}
+
+/*================段落格式结束=============*/
+
+/*================链接开始=============*/
+
+ a /*超链接*/ {
+  text-decoration: none; /*文本的修饰*/
+  font-size: 16px;
+  word-wrap: break-word; /*[normal|break-word]*/
+  color: #1890ff !important;
+  border-bottom: 1.5px solid #3baafa !important;
+  font-weight: normal; /*[normal|bold]*/
+}
+
+/*================链接结束=============*/
+
+/*================图片开始=============*/
+ img/*图片*/ {
+  display: block;
+  margin: 5px;
+  max-width: 100%;
+  border-radius: 6px; /*图片边框圆角化*/
+  object-fit: contain; /*图片自动缩放*/
+  box-shadow: 2px 2px 7px #999; /*图片外边框阴影化*/
+}
+
+ figcaption/*图片描述文字*/ {
+  margin-top: 10px;
+  display: block; /*块级元素，此元素前后会带有换行符*/
+  text-align: center; /*[left|center]*/
+  color: #999;
+  font-size: 13px;
+}
+
+ figcaption:before/*图片描述文字之前*/ {
+  content: "";
+  background-image: url(https://img.alicdn.com/tfs/TB1Yycwyrj1gK0jSZFuXXcrHpXa-32-32.png);
+  display: inline-block; /*行内块元素*/
+  width: 18px;
+  height: 18px;
+  background-size: 18px;
+  background-repeat: no-repeat; /*背景图像不会重复*/
+  background-position: center;
+  margin-right: 5px;
+  margin-bottom: -5px;
+}
+
+/*================图片结束=============*/
+
+/*================引用开始=============*/
+ blockquote  /*引用块*/ {
+  text-align: left;
+  border-left: 3px solid rgba(0, 0, 0, 0.4) !important;
+  background: RGBA(0, 0, 0, 0.05) !important;
+  display: block;
+  padding: 1px 5px !important;
+}
+
+ blockquote p /*引用块的文字内容*/ {
+  color: #777;
+  text-indent: 0em; /*首行缩进*/
+}
+
+ q {
+  border-left: 6px solid #ddd;
+  padding: 0 1em;
+  color: #777;
+  quotes: none;
+}
+
+ blockquote::before,  blockquote::after,  q::before,  q::after /*引用块之前和之后*/ {
+  content: none;
+}
+/*================引用结束=============*/
+
+/*================列表开始=============*/
+ li /* 列表中的项目样式：包括无序前缀点、有序前缀数、列表内容*/ {
+  font-size: 15px;
+  font-weight: normal;
+  color: #595959;
+}
+
+ ul,
+ol {
+  /*	padding-left: 32px;	/**Md2All	*/
+  padding-left: 2em !important;
+  font-size: 15px;
+  color: #595959;
+}
+
+ ul /* 无序列表-一级列表前缀点样式 Markdown Nice*/ {
+  list-style-type: disc; /*[square|circle|disc]*/
+}
+
+ ol /* 有序列表--一级列表前缀数字样式 Markdown Nice*/ {
+  list-style-type: decimal; /*[decimal|upper-roman|lower-alpha]*/
+}
+
+ ol ol,  ul ol /* 有序列表--二级列表前缀数字样式*/ {
+  padding-left: 1em;
+  list-style-type: lower-roman !important;
+}
+
+ ol ul,  ul ul /* 无序列表--二级列表前缀点样式*/ {
+  padding-left: 1em;
+  list-style-type: circle !important;
+}
+
+ ul ul ol,  ul ol ol,  ol ul ol,  ol ol ol /* 有序列表--三级子列表前缀数字样式*/ {
+  list-style-type: lower-alpha !important;
+}
+/*================列表结束=============*/
+
+/*================定义列表开始=============*/
+
+dl /* 定义一个定义列表 */ {
+  padding: 0;
+}
+
+dl dt /* 定义一个定义定义列表中的项目 */ {
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+dl dd /* 定义定义列表中项目的描述 */ {
+  margin: 0 0 1em;
+  padding: 0 1em;
+}
+
+/*================定义列表结束=============*/
+
+/*================任务列表开始=============*/
+
+/*================任务列表结束=============*/
+
+/*================目录开始=============*/
+
+/*================目录结束=============*/
+
+/*================表格开始=============*/
+table /* 定义一个表格 */ {
+  border-collapse: collapse;
+  display: table;
+  width: 100%;
+}
+
+table tr /* 定义表格的行 */ {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+ table tr th /* 表格的表头 */ {
+  border: 2px solid #ccc !important;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+tbody /* 表格的主体内容 */ {
+  margin: 10;
+  padding: 0;
+}
+
+ table tr td /* 表格主体内容单元 */ {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: #595959;
+  padding: 5px 10px;
+}
+
+table tr:nth-child(2n) /*隔行改变行的背景色*/ {
+  background-color: #f8f8f8;
+}
+/*================表格结束=============*/
+
+/*================标题开始=============*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 0px;
+  font-weight: bold;
+}
+
+h1 /* 一级标题 */ {
+  font-size: 24px;
+  text-align: center;
+  color: #40b8fa;
+}
+
+ h2 /* 二级标题 */ {
+  display: block;
+  border-bottom: 3px solid #40b8fa;
+  font-size: 22px;
+  color: #40b8fa !important;
+  position: relative; /*相对定位元素的定位是相对其正常位置。*/
+}
+
+ h2 ::before /* 二级标题前缀 */
+/* 二级标题前缀 _h2 .prefix | h2 ::before	*/ {
+  content: "";
+  background-image: url(https://img.alicdn.com/tfs/TB1iq.pypY7gK0jSZKzXXaikpXa-32-32.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: -4px;
+}
+
+ h2 ::after  /* 二级标题后缀 */
+/* 二级标题后缀 _h2 .suffix | h2 ::after	*/ {
+  content: "";
+  background: RGBA(64, 184, 250, 0.5);
+  border-top-left-radius: 20px;
+  width: 100px;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+ h3 /* 三级标题 */ {
+  font-size: 20px;
+  font-weight: bold;
+  position: relative; /*相对定位元素的定位是相对其正常位置。*/
+
+  width: fit-content;
+  border-bottom: 2px solid RGBA(79, 177, 249, 0.65);
+  color: #40b8fa !important;
+  padding-bottom: 2px;
+}
+
+ h3 ::before/* 三级标题文字内容之前 */ {
+  /*三级标题文字内容之前 _h3 ::before | h3 ::before */
+  content: "";
+  background-image: url(https://cdn.jsdelivr.net/gh/Sky-seeker/Pictrue_Bed/img/idea.png);
+  background-size: 21px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: -4px;
+}
+
+h4 /* 四级标题*/ {
+  font-size: 18px;
+}
+
+ h4 :before/* 四级标题文字内容之前 Markdown Nice */ 
+/* 四级标题文字内容之前 _h4 :before | h4::before */ {
+  content: "";
+  background-image: url(https://img.alicdn.com/tfs/TB1Lc.uyuL2gK0jSZFmXXc7iXXa-32-32.png);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+  margin-bottom: -2px;
+}
+
+ h5/* 五级标题 */ {
+  font-size: 16px;
+  border-radius: 10px;
+  border-left: 5px solid rgb(159, 219, 252);
+  padding-left: 5px;
+}
+
+h6/* 六级标题*/ {
+  font-size: 16px;
+}
+
+/*================标题结束=============*/
+
+/*================数学公式开始=============*/
+/********暂无：行内公式、块公式********/
+
+/*================数学公式结束=============*/
+
+/*================画图开始=============*/
+
+/********暂无：柱状图、线图、饼图********/
+/********暂无：流程图、时序图、甘特图********/
+
+/*================画图结束=============*/
+
+
+
+/*=================== 相关参考资料 ===================*/
+
+/*
+W3school	CSS 教程
+https://www.w3school.com.cn/css/index.asp
+
+菜鸟教程	CSS 教程
+https://www.runoob.com/css/css-tutorial.html
+*/
+
+/*
+before 和after属于css伪元素，:before在元素之前插入相应。：after在之后插入。伪元素用::，伪类用：。
+*/
+
+/*
+选择器：
+https://blog.csdn.net/m0_38070602/article/details/69950795
+
+pre code 的解释：
+http://www.cnblogs.com/lizonghui/archive/2012/09/18/2692355.html
+
+伪元素和伪类：
+https://blog.csdn.net/qq_25292481/article/details/52577320
+*/
